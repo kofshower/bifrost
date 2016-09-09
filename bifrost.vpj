@@ -1,0 +1,669 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+    Version="10.0"
+    VendorName="SlickEdit"
+    TemplateName="GNU C/C++"
+    WorkingDir="."
+    BuildSystem="vsbuild">
+    <Config
+        Name="Debug"
+        Type="gnuc"
+        DebugCallbackName="gdb"
+        Version="1"
+        OutputFile="%bdbifrost"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ -c %xup  %defd -g -o "%bd%n%oe" %i "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link"
+                ShowOnMenu="Never"
+                Dialog="_gnuc_options_form Link"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ %xup -g -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+            <Target
+                Name="dash"
+                MenuCaption="-"
+                Deletable="0">
+                <Exec/>
+            </Target>
+            <Target
+                Name="GNU C Options"
+                MenuCaption="GNU C &amp;Options..."
+                ShowOnMenu="HideIfNoCmdLine"
+                Deletable="0"
+                SaveOption="SaveNone">
+                <Exec
+                    CmdLine="gnucoptions"
+                    Type="Slick-C"/>
+            </Target>
+        </Menu>
+        <List Name="GNUC Options">
+            <Item
+                Name="LinkerOutputType"
+                Value="Executable"/>
+        </List>
+    </Config>
+    <Config
+        Name="Release"
+        Type="gnuc"
+        DebugCallbackName="gdb"
+        Version="1"
+        OutputFile="%bdbifrost"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ -c %xup %defd -o "%bd%n%oe" %i "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link"
+                ShowOnMenu="Never"
+                Dialog="_gnuc_options_form Link"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='g++ %xup -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+            <Target
+                Name="dash"
+                MenuCaption="-"
+                Deletable="0">
+                <Exec/>
+            </Target>
+            <Target
+                Name="GNU C Options"
+                MenuCaption="GNU C &amp;Options..."
+                ShowOnMenu="HideIfNoCmdLine"
+                Deletable="0"
+                SaveOption="SaveNone">
+                <Exec
+                    CmdLine="gnucoptions"
+                    Type="Slick-C"/>
+            </Target>
+        </Menu>
+        <List Name="GNUC Options">
+            <Item
+                Name="LinkerOutputType"
+                Value="Executable"/>
+        </List>
+    </Config>
+    <CustomFolders>
+        <Folder
+            Name="Source Files"
+            Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go">
+        </Folder>
+        <Folder
+            Name="Header Files"
+            Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.inc;*.sh;*.cpy;*.if">
+        </Folder>
+        <Folder
+            Name="Resource Files"
+            Filters="*.ico;*.cur;*.dlg">
+        </Folder>
+        <Folder
+            Name="Bitmaps"
+            Filters="*.bmp"/>
+        <Folder
+            Name="Other Files"
+            Filters="">
+        </Folder>
+    </CustomFolders>
+    <Files AutoFolders="DirectoryView">
+        <Folder Name=".git">
+            <Folder Name="hooks">
+                <F N=".git/hooks/applypatch-msg.sample"/>
+                <F N=".git/hooks/commit-msg.sample"/>
+                <F N=".git/hooks/post-update.sample"/>
+                <F N=".git/hooks/pre-applypatch.sample"/>
+                <F N=".git/hooks/pre-commit.sample"/>
+                <F N=".git/hooks/pre-push.sample"/>
+                <F N=".git/hooks/pre-rebase.sample"/>
+                <F N=".git/hooks/prepare-commit-msg.sample"/>
+                <F N=".git/hooks/update.sample"/>
+            </Folder>
+        </Folder>
+        <Folder Name="deps">
+            <Folder Name="hiredis">
+                <Folder Name="adapters">
+                    <F N="deps/hiredis/adapters/ae.h"/>
+                    <F N="deps/hiredis/adapters/libev.h"/>
+                    <F N="deps/hiredis/adapters/libevent.h"/>
+                </Folder>
+                <F N="deps/hiredis/.gitignore"/>
+                <F N="deps/hiredis/async.c"/>
+                <F N="deps/hiredis/async.h"/>
+                <F N="deps/hiredis/CHANGELOG.md"/>
+                <F N="deps/hiredis/dict.c"/>
+                <F N="deps/hiredis/dict.h"/>
+                <F N="deps/hiredis/example-ae.c"/>
+                <F N="deps/hiredis/example-libev.c"/>
+                <F N="deps/hiredis/example-libevent.c"/>
+                <F N="deps/hiredis/example.c"/>
+                <F N="deps/hiredis/fmacros.h"/>
+                <F N="deps/hiredis/hiredis.c"/>
+                <F N="deps/hiredis/hiredis.h"/>
+                <F N="deps/hiredis/net.c"/>
+                <F N="deps/hiredis/net.h"/>
+                <F N="deps/hiredis/README.md"/>
+                <F N="deps/hiredis/sds.c"/>
+                <F N="deps/hiredis/sds.h"/>
+                <F N="deps/hiredis/test.c"/>
+            </Folder>
+            <Folder Name="jemalloc">
+                <Folder Name="bin">
+                    <F N="deps/jemalloc/bin/jemalloc.sh.in"/>
+                </Folder>
+                <Folder Name="doc">
+                    <F N="deps/jemalloc/doc/html.xsl.in"/>
+                    <F N="deps/jemalloc/doc/jemalloc.3"/>
+                    <F N="deps/jemalloc/doc/jemalloc.html"/>
+                    <F N="deps/jemalloc/doc/jemalloc.xml.in"/>
+                    <F N="deps/jemalloc/doc/manpages.xsl.in"/>
+                    <F N="deps/jemalloc/doc/stylesheet.xsl"/>
+                </Folder>
+                <Folder Name="include">
+                    <Folder Name="jemalloc">
+                        <Folder Name="internal">
+                            <F N="deps/jemalloc/include/jemalloc/internal/arena.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/atomic.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/base.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/bitmap.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/chunk.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/chunk_dss.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/chunk_mmap.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/ckh.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/ctl.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/extent.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/hash.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/huge.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/jemalloc_internal.h.in"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/mb.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/mutex.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/private_namespace.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/prng.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/prof.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/ql.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/qr.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/quarantine.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/rb.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/rtree.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/size_classes.sh"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/stats.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/tcache.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/tsd.h"/>
+                            <F N="deps/jemalloc/include/jemalloc/internal/util.h"/>
+                        </Folder>
+                        <F N="deps/jemalloc/include/jemalloc/jemalloc.h.in"/>
+                        <F N="deps/jemalloc/include/jemalloc/jemalloc_defs.h.in"/>
+                    </Folder>
+                    <Folder Name="msvc_compat">
+                        <F N="deps/jemalloc/include/msvc_compat/inttypes.h"/>
+                        <F N="deps/jemalloc/include/msvc_compat/stdbool.h"/>
+                        <F N="deps/jemalloc/include/msvc_compat/stdint.h"/>
+                        <F N="deps/jemalloc/include/msvc_compat/strings.h"/>
+                    </Folder>
+                </Folder>
+                <Folder Name="src">
+                    <F N="deps/jemalloc/src/arena.c"/>
+                    <F N="deps/jemalloc/src/atomic.c"/>
+                    <F N="deps/jemalloc/src/base.c"/>
+                    <F N="deps/jemalloc/src/bitmap.c"/>
+                    <F N="deps/jemalloc/src/chunk.c"/>
+                    <F N="deps/jemalloc/src/chunk_dss.c"/>
+                    <F N="deps/jemalloc/src/chunk_mmap.c"/>
+                    <F N="deps/jemalloc/src/ckh.c"/>
+                    <F N="deps/jemalloc/src/ctl.c"/>
+                    <F N="deps/jemalloc/src/extent.c"/>
+                    <F N="deps/jemalloc/src/hash.c"/>
+                    <F N="deps/jemalloc/src/huge.c"/>
+                    <F N="deps/jemalloc/src/jemalloc.c"/>
+                    <F N="deps/jemalloc/src/mb.c"/>
+                    <F N="deps/jemalloc/src/mutex.c"/>
+                    <F N="deps/jemalloc/src/prof.c"/>
+                    <F N="deps/jemalloc/src/quarantine.c"/>
+                    <F N="deps/jemalloc/src/rtree.c"/>
+                    <F N="deps/jemalloc/src/stats.c"/>
+                    <F N="deps/jemalloc/src/tcache.c"/>
+                    <F N="deps/jemalloc/src/tsd.c"/>
+                    <F N="deps/jemalloc/src/util.c"/>
+                    <F N="deps/jemalloc/src/zone.c"/>
+                </Folder>
+                <Folder Name="test">
+                    <F N="deps/jemalloc/test/aligned_alloc.c"/>
+                    <F N="deps/jemalloc/test/aligned_alloc.exp"/>
+                    <F N="deps/jemalloc/test/allocated.c"/>
+                    <F N="deps/jemalloc/test/allocated.exp"/>
+                    <F N="deps/jemalloc/test/allocm.c"/>
+                    <F N="deps/jemalloc/test/allocm.exp"/>
+                    <F N="deps/jemalloc/test/ALLOCM_ARENA.c"/>
+                    <F N="deps/jemalloc/test/ALLOCM_ARENA.exp"/>
+                    <F N="deps/jemalloc/test/bitmap.c"/>
+                    <F N="deps/jemalloc/test/bitmap.exp"/>
+                    <F N="deps/jemalloc/test/jemalloc_test.h.in"/>
+                    <F N="deps/jemalloc/test/mremap.c"/>
+                    <F N="deps/jemalloc/test/mremap.exp"/>
+                    <F N="deps/jemalloc/test/posix_memalign.c"/>
+                    <F N="deps/jemalloc/test/posix_memalign.exp"/>
+                    <F N="deps/jemalloc/test/rallocm.c"/>
+                    <F N="deps/jemalloc/test/rallocm.exp"/>
+                    <F N="deps/jemalloc/test/thread_arena.c"/>
+                    <F N="deps/jemalloc/test/thread_arena.exp"/>
+                    <F N="deps/jemalloc/test/thread_tcache_enabled.c"/>
+                    <F N="deps/jemalloc/test/thread_tcache_enabled.exp"/>
+                </Folder>
+                <F N="deps/jemalloc/.gitignore"/>
+                <F N="deps/jemalloc/autogen.sh"/>
+                <F N="deps/jemalloc/config.guess"/>
+                <F N="deps/jemalloc/config.stamp.in"/>
+                <F N="deps/jemalloc/config.sub"/>
+                <F N="deps/jemalloc/configure.ac"/>
+                <F
+                    N="deps/jemalloc/Makefile.in"
+                    Type="Makefile"/>
+            </Folder>
+            <Folder Name="linenoise">
+                <F N="deps/linenoise/.gitignore"/>
+                <F N="deps/linenoise/example.c"/>
+                <F N="deps/linenoise/linenoise.c"/>
+                <F N="deps/linenoise/linenoise.h"/>
+                <F N="deps/linenoise/README.markdown"/>
+            </Folder>
+            <Folder Name="lua">
+                <Folder Name="doc">
+                    <F N="deps/lua/doc/contents.html"/>
+                    <F N="deps/lua/doc/cover.png"/>
+                    <F N="deps/lua/doc/logo.gif"/>
+                    <F N="deps/lua/doc/lua.1"/>
+                    <F N="deps/lua/doc/lua.css"/>
+                    <F N="deps/lua/doc/lua.html"/>
+                    <F N="deps/lua/doc/luac.1"/>
+                    <F N="deps/lua/doc/luac.html"/>
+                    <F N="deps/lua/doc/manual.css"/>
+                    <F N="deps/lua/doc/manual.html"/>
+                    <F N="deps/lua/doc/readme.html"/>
+                </Folder>
+                <Folder Name="etc">
+                    <F N="deps/lua/etc/all.c"/>
+                    <F N="deps/lua/etc/lua.hpp"/>
+                    <F N="deps/lua/etc/lua.ico"/>
+                    <F N="deps/lua/etc/lua.pc"/>
+                    <F N="deps/lua/etc/luavs.bat"/>
+                    <F N="deps/lua/etc/min.c"/>
+                    <F N="deps/lua/etc/noparser.c"/>
+                    <F N="deps/lua/etc/strict.lua"/>
+                </Folder>
+                <Folder Name="src">
+                    <F N="deps/lua/src/lapi.c"/>
+                    <F N="deps/lua/src/lapi.h"/>
+                    <F N="deps/lua/src/lauxlib.c"/>
+                    <F N="deps/lua/src/lauxlib.h"/>
+                    <F N="deps/lua/src/lbaselib.c"/>
+                    <F N="deps/lua/src/lcode.c"/>
+                    <F N="deps/lua/src/lcode.h"/>
+                    <F N="deps/lua/src/ldblib.c"/>
+                    <F N="deps/lua/src/ldebug.c"/>
+                    <F N="deps/lua/src/ldebug.h"/>
+                    <F N="deps/lua/src/ldo.c"/>
+                    <F N="deps/lua/src/ldo.h"/>
+                    <F N="deps/lua/src/ldump.c"/>
+                    <F N="deps/lua/src/lfunc.c"/>
+                    <F N="deps/lua/src/lfunc.h"/>
+                    <F N="deps/lua/src/lgc.c"/>
+                    <F N="deps/lua/src/lgc.h"/>
+                    <F N="deps/lua/src/linit.c"/>
+                    <F N="deps/lua/src/liolib.c"/>
+                    <F N="deps/lua/src/llex.c"/>
+                    <F N="deps/lua/src/llex.h"/>
+                    <F N="deps/lua/src/llimits.h"/>
+                    <F N="deps/lua/src/lmathlib.c"/>
+                    <F N="deps/lua/src/lmem.c"/>
+                    <F N="deps/lua/src/lmem.h"/>
+                    <F N="deps/lua/src/loadlib.c"/>
+                    <F N="deps/lua/src/lobject.c"/>
+                    <F N="deps/lua/src/lobject.h"/>
+                    <F N="deps/lua/src/lopcodes.c"/>
+                    <F N="deps/lua/src/lopcodes.h"/>
+                    <F N="deps/lua/src/loslib.c"/>
+                    <F N="deps/lua/src/lparser.c"/>
+                    <F N="deps/lua/src/lparser.h"/>
+                    <F N="deps/lua/src/lstate.c"/>
+                    <F N="deps/lua/src/lstate.h"/>
+                    <F N="deps/lua/src/lstring.c"/>
+                    <F N="deps/lua/src/lstring.h"/>
+                    <F N="deps/lua/src/lstrlib.c"/>
+                    <F N="deps/lua/src/ltable.c"/>
+                    <F N="deps/lua/src/ltable.h"/>
+                    <F N="deps/lua/src/ltablib.c"/>
+                    <F N="deps/lua/src/ltm.c"/>
+                    <F N="deps/lua/src/ltm.h"/>
+                    <F N="deps/lua/src/lua.c"/>
+                    <F N="deps/lua/src/lua.h"/>
+                    <F N="deps/lua/src/lua_cjson.c"/>
+                    <F N="deps/lua/src/lua_cmsgpack.c"/>
+                    <F N="deps/lua/src/lua_struct.c"/>
+                    <F N="deps/lua/src/luac.c"/>
+                    <F N="deps/lua/src/luaconf.h"/>
+                    <F N="deps/lua/src/lualib.h"/>
+                    <F N="deps/lua/src/lundump.c"/>
+                    <F N="deps/lua/src/lundump.h"/>
+                    <F N="deps/lua/src/lvm.c"/>
+                    <F N="deps/lua/src/lvm.h"/>
+                    <F N="deps/lua/src/lzio.c"/>
+                    <F N="deps/lua/src/lzio.h"/>
+                    <F N="deps/lua/src/print.c"/>
+                    <F N="deps/lua/src/strbuf.c"/>
+                    <F N="deps/lua/src/strbuf.h"/>
+                </Folder>
+                <Folder Name="test">
+                    <F N="deps/lua/test/bisect.lua"/>
+                    <F N="deps/lua/test/cf.lua"/>
+                    <F N="deps/lua/test/echo.lua"/>
+                    <F N="deps/lua/test/env.lua"/>
+                    <F N="deps/lua/test/factorial.lua"/>
+                    <F N="deps/lua/test/fib.lua"/>
+                    <F N="deps/lua/test/fibfor.lua"/>
+                    <F N="deps/lua/test/globals.lua"/>
+                    <F N="deps/lua/test/hello.lua"/>
+                    <F N="deps/lua/test/life.lua"/>
+                    <F N="deps/lua/test/luac.lua"/>
+                    <F N="deps/lua/test/printf.lua"/>
+                    <F N="deps/lua/test/readonly.lua"/>
+                    <F N="deps/lua/test/sieve.lua"/>
+                    <F N="deps/lua/test/sort.lua"/>
+                    <F N="deps/lua/test/table.lua"/>
+                    <F N="deps/lua/test/trace-calls.lua"/>
+                    <F N="deps/lua/test/trace-globals.lua"/>
+                    <F N="deps/lua/test/xd.lua"/>
+                </Folder>
+            </Folder>
+        </Folder>
+        <Folder Name="script">
+            <F N="script/bgrewrite.sh"/>
+            <F N="script/bgsave.sh"/>
+            <F N="script/cgroup.conf"/>
+            <F N="script/dynamic.conf"/>
+            <F N="script/init.conf"/>
+            <F N="script/init.sh"/>
+            <F N="script/monitor.sh"/>
+            <F N="script/redis_control.sh"/>
+            <F N="script/static.conf"/>
+        </Folder>
+        <Folder Name="src">
+            <F N="src/.gitignore"/>
+            <F N="src/adlist.c"/>
+            <F N="src/adlist.h"/>
+            <F N="src/ae.c"/>
+            <F N="src/ae.h"/>
+            <F N="src/ae_epoll.c"/>
+            <F N="src/ae_evport.c"/>
+            <F N="src/ae_kqueue.c"/>
+            <F N="src/ae_select.c"/>
+            <F N="src/anet.c"/>
+            <F N="src/anet.h"/>
+            <F N="src/aof.c"/>
+            <F N="src/asciilogo.h"/>
+            <F N="src/bio.c"/>
+            <F N="src/bio.h"/>
+            <F N="src/bitops.c"/>
+            <F N="src/config.c"/>
+            <F N="src/config.h"/>
+            <F N="src/crc64.c"/>
+            <F N="src/db.c"/>
+            <F N="src/debug.c"/>
+            <F N="src/dict.c"/>
+            <F N="src/dict.h"/>
+            <F N="src/endianconv.c"/>
+            <F N="src/endianconv.h"/>
+            <F N="src/fmacros.h"/>
+            <F N="src/help.h"/>
+            <F N="src/intset.c"/>
+            <F N="src/intset.h"/>
+            <F N="src/lzf.h"/>
+            <F N="src/lzf_c.c"/>
+            <F N="src/lzf_d.c"/>
+            <F N="src/lzfP.h"/>
+            <F
+                N="src/Makefile.dep"
+                Type="Makefile"/>
+            <F N="src/memtest.c"/>
+            <F N="src/migrate.c"/>
+            <F N="src/mkreleasehdr.sh"/>
+            <F N="src/multi.c"/>
+            <F N="src/networking.c"/>
+            <F N="src/object.c"/>
+            <F N="src/pqsort.c"/>
+            <F N="src/pqsort.h"/>
+            <F N="src/pubsub.c"/>
+            <F N="src/rand.c"/>
+            <F N="src/rand.h"/>
+            <F N="src/rdb.c"/>
+            <F N="src/rdb.h"/>
+            <F N="src/redis-benchmark.c"/>
+            <F N="src/redis-check-aof.c"/>
+            <F N="src/redis-check-dump.c"/>
+            <F N="src/redis-cli.c"/>
+            <F N="src/redis.c"/>
+            <F N="src/redis.h"/>
+            <F N="src/redisassert.h"/>
+            <F N="src/release.c"/>
+            <F N="src/replication.c"/>
+            <F N="src/rio.c"/>
+            <F N="src/rio.h"/>
+            <F N="src/scripting.c"/>
+            <F N="src/sds.c"/>
+            <F N="src/sds.h"/>
+            <F N="src/sentinel.c"/>
+            <F N="src/sha1.c"/>
+            <F N="src/sha1.h"/>
+            <F N="src/slowlog.c"/>
+            <F N="src/slowlog.h"/>
+            <F N="src/so_api.h"/>
+            <F N="src/solarisfixes.h"/>
+            <F N="src/sort.c"/>
+            <F N="src/syncio.c"/>
+            <F N="src/t_hash.c"/>
+            <F N="src/t_list.c"/>
+            <F N="src/t_set.c"/>
+            <F N="src/t_string.c"/>
+            <F N="src/t_zset.c"/>
+            <F N="src/testhelp.h"/>
+            <F N="src/util.c"/>
+            <F N="src/util.h"/>
+            <F N="src/valgrind.sup"/>
+            <F N="src/version.h"/>
+            <F N="src/ziplist.c"/>
+            <F N="src/ziplist.h"/>
+            <F N="src/zipmap.c"/>
+            <F N="src/zipmap.h"/>
+            <F N="src/zmalloc.c"/>
+            <F N="src/zmalloc.h"/>
+        </Folder>
+        <Folder Name="tests">
+            <Folder Name="assets">
+                <F N="tests/assets/default.conf"/>
+                <F N="tests/assets/encodings.rdb"/>
+                <F N="tests/assets/hash-zipmap.rdb"/>
+            </Folder>
+            <Folder Name="helpers">
+                <F N="tests/helpers/bg_complex_data.tcl"/>
+                <F N="tests/helpers/gen_write_load.tcl"/>
+            </Folder>
+            <Folder Name="integration">
+                <F N="tests/integration/aof-race.tcl"/>
+                <F N="tests/integration/aof.tcl"/>
+                <F N="tests/integration/convert-zipmap-hash-on-load.tcl"/>
+                <F N="tests/integration/rdb.tcl"/>
+                <F N="tests/integration/redis-cli.tcl"/>
+                <F N="tests/integration/replication-2.tcl"/>
+                <F N="tests/integration/replication-3.tcl"/>
+                <F N="tests/integration/replication-4.tcl"/>
+                <F N="tests/integration/replication.tcl"/>
+            </Folder>
+            <Folder Name="support">
+                <F N="tests/support/redis.tcl"/>
+                <F N="tests/support/server.tcl"/>
+                <F N="tests/support/test.tcl"/>
+                <F N="tests/support/tmpfile.tcl"/>
+                <F N="tests/support/util.tcl"/>
+            </Folder>
+            <Folder Name="tmp">
+                <F N="tests/tmp/.gitignore"/>
+            </Folder>
+            <Folder Name="unit">
+                <Folder Name="type">
+                    <F N="tests/unit/type/hash.tcl"/>
+                    <F N="tests/unit/type/list-2.tcl"/>
+                    <F N="tests/unit/type/list-3.tcl"/>
+                    <F N="tests/unit/type/list-common.tcl"/>
+                    <F N="tests/unit/type/list.tcl"/>
+                    <F N="tests/unit/type/set.tcl"/>
+                    <F N="tests/unit/type/zset.tcl"/>
+                </Folder>
+                <F N="tests/unit/aofrw.tcl"/>
+                <F N="tests/unit/auth.tcl"/>
+                <F N="tests/unit/basic.tcl"/>
+                <F N="tests/unit/bitops.tcl"/>
+                <F N="tests/unit/dump.tcl"/>
+                <F N="tests/unit/expire.tcl"/>
+                <F N="tests/unit/introspection.tcl"/>
+                <F N="tests/unit/limits.tcl"/>
+                <F N="tests/unit/maxmemory.tcl"/>
+                <F N="tests/unit/multi.tcl"/>
+                <F N="tests/unit/obuf-limits.tcl"/>
+                <F N="tests/unit/other.tcl"/>
+                <F N="tests/unit/printver.tcl"/>
+                <F N="tests/unit/protocol.tcl"/>
+                <F N="tests/unit/pubsub.tcl"/>
+                <F N="tests/unit/quit.tcl"/>
+                <F N="tests/unit/scripting.tcl"/>
+                <F N="tests/unit/slowlog.tcl"/>
+                <F N="tests/unit/sort.tcl"/>
+            </Folder>
+            <F N="tests/test_helper.tcl"/>
+        </Folder>
+        <Folder Name="utils">
+            <F N="utils/build-static-symbols.tcl"/>
+            <F N="utils/generate-command-help.rb"/>
+            <F N="utils/install_server.sh"/>
+            <F N="utils/mkrelease.sh"/>
+            <F N="utils/redis-copy.rb"/>
+            <F N="utils/redis-sha1.rb"/>
+            <F N="utils/redis_init_script.tpl"/>
+            <F N="utils/speed-regression.tcl"/>
+            <F N="utils/whatisdoing.sh"/>
+        </Folder>
+        <F N="bifrost.vpj"/>
+        <F N="bifrost.vpw"/>
+        <F N="bifrost.vpwhistu"/>
+        <F N="redis.conf"/>
+        <F N="sentinel.conf"/>
+    </Files>
+</Project>
